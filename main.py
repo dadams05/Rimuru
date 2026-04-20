@@ -115,4 +115,20 @@ async def add_feed(interaction: discord.Interaction, values: str):
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
+# generate the config file if it doesn't exist
+try:
+    with open(CONFIG_FILE, "x") as file:
+        default = {
+            "settings": {
+                "poll_interval": "1hr",
+                "global_muted_feeds": []
+            },
+            "channels": {},
+            "feeds": {}
+        }
+        json.dump(default, file, indent=4)
+except FileExistsError:
+    pass # file already exists
+
+# start the bot
 bot.run(token)
