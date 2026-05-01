@@ -19,7 +19,7 @@ This is a self-hostable Discord bot for posting RSS feed in your Discord server
 - if no channels specified, remove the url(s) from all channels
 
 ```
-/strip_feed <channels>
+/strip_channel <channels>
 ```
 - removes all feeds from the channels specified
 
